@@ -1,0 +1,2 @@
+body,html{height:100%;margin:0}body{align-items:center;background-color:#ffd54f;display:flex;font-family:Roboto,sans-serif}.timer{color:#333;margin:0 auto;text-align:center}.field,span{display:inline-block;font-size:1.5em;list-style-type:none;padding:.5em;text-transform:uppercase}.value{display:block;font-size:4rem}.label{display:block;font-size:1.5rem}@media (max-width:768px){.field,span{font-size:1.125rem;padding:.75rem}span{font-size:1.375rem}}
+/*# sourceMappingURL=/goit-js-hw-11-timer/styles.3716be48.css.map */
