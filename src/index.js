@@ -20,7 +20,7 @@ const timer = new CountdownTimer({
 });
 
 const timerMarkup = document.querySelector(timer.selector).querySelectorAll('[data-value]')
-setInterval(()=>timerMarkup.forEach(addMarkupTimer), 1000)
+setInterval(()=>timerMarkup.forEach(addMarkupTimer), 0)
 
 function addMarkupTimer(el) {
 let key = el.dataset.value
