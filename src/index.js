@@ -1,10 +1,11 @@
 import './css/styles.scss'
 class CountdownTimer {
   constructor({selector, targetDate}) {
-    this.selector = selector;
+    this.selector = document.querySelector(selector);
     this.targetDate = new Date(targetDate).getTime();
   }
   counterDownTime() {
+    setInterval(()=>{
     let time = this.targetDate - Date.now()
     if (time < 0) {
       time = 0
@@ -13,7 +14,26 @@ class CountdownTimer {
   const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
   const secs = Math.floor((time % (1000 * 60)) / 1000);
-  return {days, hours, mins, secs}
+    return this.selector.innerHTML = `<div class="field">
+            <span class="value" data-value="days">${days}</span>
+            <span class="label">Days</span>
+        </div>
+    
+        <div class="field">
+            <span class="value" data-value="hours">${hours}</span>
+            <span class="label">Hours</span>
+        </div>
+    
+        <div class="field">
+            <span class="value" data-value="mins">${mins}</span>
+            <span class="label">Minutes</span>
+        </div>
+    
+        <div class="field">
+            <span class="value" data-value="secs">${secs}</span>
+            <span class="label">Seconds</span>
+        </div>`
+      }, 1000)
   }
 }
 
@@ -21,11 +41,4 @@ const timer = new CountdownTimer({
   selector: '#timer-1',
   targetDate: 'April 12, 2021',
 });
-
-const timerMarkup = document.querySelector(timer.selector).querySelectorAll('[data-value]')
-setInterval(()=>timerMarkup.forEach(addMarkupTimer), 0)
-
-function addMarkupTimer(el) {
-let key = el.dataset.value
-  el.textContent = timer.counterDownTime()[key]
-}
+timer.counterDownTime()
