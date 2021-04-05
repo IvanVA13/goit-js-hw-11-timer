@@ -5,7 +5,10 @@ class CountdownTimer {
     this.targetDate = new Date(targetDate).getTime();
   }
   counterDownTime() {
-  let time = this.targetDate - Date.now()
+    let time = this.targetDate - Date.now()
+    if (time < 0) {
+      time = 0
+    }
   const days = Math.floor(time / (1000 * 60 * 60 * 24));
   const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
